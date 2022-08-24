@@ -15,7 +15,8 @@ def filepath(request: FixtureRequest[str], filename: str) -> typing.FilePath:
             return str(filename)
         case "Path":
             return pathlib.Path(filename)
-    raise NotImplementedError  # pragma: no cover
+        case _:
+            raise NotImplementedError
 
 
 @pytest.fixture(params=["buffer", "filepath"])
@@ -34,7 +35,7 @@ def filepath_or_buffer(
                 with open(pathlib.Path(tmpdir) / filepath, "wb") as f:
                     yield f
             else:
-                raise ValueError(f"Invalid open_mode {open_mode}.")  # pragma: no cover
+                raise ValueError(f"Invalid open_mode {open_mode}.")
         case "filepath":
             if isinstance(filepath, str):
                 yield os.path.join(tmpdir, filepath)
