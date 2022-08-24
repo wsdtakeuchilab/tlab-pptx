@@ -5,8 +5,8 @@ description = "Create PowerPoint files for Takeuchi Lab"
 license = "MIT"
 authors = ["Shuhei Nitta <huisintheta@gmail.com>"]
 readme = "README.md"
-homepage = "https://github.com/Waseda-TakeuchiLab/tlab-pptx"
-repository = "https://github.com/Waseda-TakeuchiLab/tlab-pptx"
+homepage = "https://github.com/wasedatakeuchilab/tlab-pptx"
+repository = "https://github.com/wasedatakeuchilab/tlab-pptx"
 
 [tool.poetry.dependencies]
 python = "~3.10"
