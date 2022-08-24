@@ -19,7 +19,7 @@ def test_new_presentation() -> None:
 
 
 @pytest.mark.parametrize(
-    ["filepathstr", "open_mode"],
+    ["filename", "open_mode"],
     [(tpptx.DEFAULT_PPTX, "rb")],
 )
 def test_new_presentation_filepath_or_buffer(
@@ -62,7 +62,7 @@ def describe_presentation() -> None:
         m.assert_called_once_with(prs._prs.slide_layouts[layout_idx])
 
     @pytest.mark.parametrize(
-        ["filepathstr", "open_mode"],
+        ["filename", "open_mode"],
         [("test_presentation_save.pptx", "wb")],
     )
     def test_save(
