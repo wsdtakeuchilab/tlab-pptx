@@ -1,4 +1,5 @@
 import functools
+import typing as t
 from unittest import mock
 
 import pptx
@@ -19,7 +20,7 @@ def test_new_presentation() -> None:
 
 
 @pytest.mark.parametrize(
-    ["filepathstr", "open_mode"],
+    ["filename", "open_mode"],
     [(tpptx.DEFAULT_PPTX, "rb")],
 )
 def test_new_presentation_filepath_or_buffer(
@@ -46,28 +47,34 @@ def describe_presentation() -> None:
     def test_slides(prs: presentation.Presentation) -> None:
         assert prs.slides == tuple(map(slide.Slide, prs._prs.slides))
 
-    def test_add_slide(prs: presentation.Presentation) -> None:
+    @pytest.fixture()
+    def add_slide_mock() -> t.Generator[mock.Mock, None, None]:
         sld = mock.Mock(spec_set=pptx.slide.Slide)
         with mock.patch("pptx.slide.Slides.add_slide", return_value=sld) as m:
-            assert prs.add_slide() == slide.Slide(sld)
-        m.assert_called_once_with(prs._prs.slide_layouts[0])
+            yield m
+
+    def test_add_slide(
+        add_slide_mock: mock.Mock, prs: presentation.Presentation
+    ) -> None:
+        assert prs.add_slide() == slide.Slide(add_slide_mock.return_value)
+        add_slide_mock.assert_called_once_with(prs._prs.slide_layouts[0])
 
     @pytest.mark.parametrize("layout_idx", [0, 1])
     def test_add_slide_layout_idx(
-        prs: presentation.Presentation, layout_idx: int
+        add_slide_mock: mock.Mock, prs: presentation.Presentation, layout_idx: int
     ) -> None:
-        sld = mock.Mock(spec_set=pptx.slide.Slide)
-        with mock.patch("pptx.slide.Slides.add_slide", return_value=sld) as m:
-            assert prs.add_slide(layout_idx) == slide.Slide(sld)
-        m.assert_called_once_with(prs._prs.slide_layouts[layout_idx])
+        assert prs.add_slide(layout_idx) == slide.Slide(add_slide_mock.return_value)
+        add_slide_mock.assert_called_once_with(prs._prs.slide_layouts[layout_idx])
 
     @pytest.mark.parametrize(
-        ["filepathstr", "open_mode"],
+        ["filename", "open_mode"],
         [("test_presentation_save.pptx", "wb")],
     )
+    @mock.patch("pptx.presentation.Presentation.save")
     def test_save(
-        prs: presentation.Presentation, filepath_or_buffer: typing.FilePathOrBuffer
+        save_mock: mock.Mock,
+        prs: presentation.Presentation,
+        filepath_or_buffer: typing.FilePathOrBuffer,
     ) -> None:
-        with mock.patch("pptx.presentation.Presentation.save") as m:
-            prs.save(filepath_or_buffer)
-        m.assert_called_once_with(filepath_or_buffer)
+        prs.save(filepath_or_buffer)
+        save_mock.assert_called_once_with(filepath_or_buffer)
