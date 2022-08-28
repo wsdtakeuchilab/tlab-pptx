@@ -12,7 +12,7 @@ repository = "https://github.com/wasedatakeuchilab/tlab-pptx"
 python = "~3.10"
 pandas = "^1.4.3"
 plotly = "^5.10.0"
-kaleido = "^0.2.1, != 0.2.1.post1"
+kaleido = "^0.2.1"
 python-pptx = "^0.6.21"
 
 [tool.poetry.dev-dependencies]
