@@ -12,19 +12,19 @@
 **_tlab-pptx_** is a Python package for creating PowerPoint(`.pptx`) files for Takeuchi laboratory.
 
 - [Installation](#installation)
-- [Getting Started](#getting-started)
+- [Getting started](#getting-started)
   - [Create a PowerPoint](#create-a-powerpoint)
-    - [Basic Usage](#basic-usage)
-    - [Add a Slide](#add-a-slide)
-    - [Add a Text](#add-a-text)
-    - [Add a Figure](#add-a-figure)
-  - [Create a Figure for PowerPoint](#create-a-figure-for-powerpoint)
-    - [Basic Usage](#basic-usage-1)
-    - [Date Annotation](#date-annotation)
-    - [LaTeX for Text](#latex-for-text)
+    - [Basic usage](#basic-usage)
+    - [Add a slide](#add-a-slide)
+    - [Add a text](#add-a-text)
+    - [Add a figure](#add-a-figure)
+  - [Create a figure for PowerPoint](#create-a-figure-for-powerpoint)
+    - [Basic usage](#basic-usage-1)
+    - [Date annotation](#date-annotation)
+    - [LaTeX for text](#latex-for-text)
     - [Subplots](#subplots)
   - [Utilities](#utilities)
-    - [Photo Luminescence Experiment](#photo-luminescence-experiment)
+    - [Photo luminescence experiment](#photo-luminescence-experiment)
 - [Lisence](#lisence)
 
 ## Installation
@@ -35,11 +35,11 @@ Python 3.10 or above is required.
 $ pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
 ```
 
-## Getting Started
+## Getting started
 
 ### Create a PowerPoint
 
-#### Basic Usage
+#### Basic usage
 
 You can create a PowerPoint by calling `tlab_pptx.new_presentation()`.
 
@@ -61,7 +61,7 @@ prs.save("hello_world.pptx")
 
 ![hello_world.pptx slide1](./resources/images/hello_world/slide1.PNG)
 
-#### Add a Slide
+#### Add a slide
 
 You can add a slide to the presentation by calling `prs.add_slide()`.
 
@@ -77,7 +77,7 @@ prs.save("add_slide.pptx")
 ![add_slide.pptx slide1](./resources/images/add_slide/slide1.PNG)
 ![add_slide.pptx slide2](./resources/images/add_slide/slide2.PNG)
 
-#### Add a Text
+#### Add a text
 
 You can add a text by calling `slide.add_text()`.
 
@@ -98,7 +98,7 @@ prs.save("add_text.pptx")
 
 ![add_text.pptx slide1](./resources/images/add_text/slide1.PNG)
 
-#### Add a Figure
+#### Add a figure
 
 You can add a [plotly](https://plotly.com/python/) figure by calling `slide.add_figure()`.
 
@@ -120,9 +120,9 @@ prs.save("add_figure.pptx")
 
 ![add_figure.pptx slide1](./resources/images/add_figure/slide1.PNG)
 
-### Create a Figure for PowerPoint
+### Create a figure for PowerPoint
 
-#### Basic Usage
+#### Basic usage
 
 You can get the default layout for PowerPoint by using `tlab_pptx.get_default_layout()`.
 
@@ -148,7 +148,7 @@ fig.show()
 
 ![basic usage figure](./resources/images/basic_usage.svg)
 
-#### Date Annotation
+#### Date annotation
 
 You can add a date annotation on the bottom-right of the figure by using `tlab_pptx.get_date_annotation()`.
 
@@ -165,7 +165,7 @@ fig.show()
 
 ![date annotation figure](./resources/images/date_annotation.svg)
 
-#### LaTeX for Text
+#### LaTeX for text
 
 You can use LaTeX for texts on the figure.
 
@@ -223,7 +223,7 @@ fig.show()
 
 ### Utilities
 
-#### Photo Luminescence Experiment
+#### Photo luminescence experiment
 
 You can create a PowerPoint with just one function `tlab_pptx.presentation.photo_luminescence.build()`.
 
