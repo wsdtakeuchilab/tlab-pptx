@@ -1,6 +1,7 @@
 import os
 import pathlib
 import typing as t
+from collections import abc
 
 import pytest
 
@@ -26,7 +27,7 @@ def filepath_or_buffer(
     request: FixtureRequest[str],
     filepath: typing.FilePath,
     open_mode: t.Literal["rb", "wb"],
-) -> t.Generator[typing.FilePathOrBuffer, None, None]:
+) -> abc.Generator[typing.FilePathOrBuffer, None, None]:
     match request.param:
         case "buffer":
             if "r" in open_mode:
