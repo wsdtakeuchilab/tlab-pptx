@@ -1,5 +1,5 @@
 import copy
-import typing as t
+from collections import abc
 from unittest import mock
 
 import plotly.graph_objects as go
@@ -140,7 +140,7 @@ def describe_slide() -> None:
             slide.update_title()
 
     @pytest.fixture()
-    def fig() -> t.Generator[go.Figure, None, None]:
+    def fig() -> abc.Generator[go.Figure, None, None]:
         with mock.patch("plotly.graph_objects.Figure.to_image", return_value=b""):
             yield go.Figure()
 

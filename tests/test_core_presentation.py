@@ -1,5 +1,5 @@
 import functools
-import typing as t
+from collections import abc
 from unittest import mock
 
 import pptx
@@ -48,7 +48,7 @@ def describe_presentation() -> None:
         assert prs.slides == tuple(map(slide.Slide, prs._prs.slides))
 
     @pytest.fixture()
-    def add_slide_mock() -> t.Generator[mock.Mock, None, None]:
+    def add_slide_mock() -> abc.Generator[mock.Mock, None, None]:
         sld = mock.Mock(spec_set=pptx.slide.Slide)
         with mock.patch("pptx.slide.Slides.add_slide", return_value=sld) as m:
             yield m
