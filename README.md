@@ -32,7 +32,7 @@
 Python 3.10 or above is required.
 
 ```sh
-$ pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
+pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
 ```
 
 ## Getting started
@@ -119,6 +119,7 @@ prs.save("add_figure.pptx")
 ```
 
 ![add_figure.pptx slide1](./resources/images/add_figure/slide1.PNG)
+<img src="./resources/images/add_figure/slide1.PNG" width="640px">
 
 ### Create a figure for PowerPoint
 
