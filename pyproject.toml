@@ -1,42 +1,48 @@
-[tool.poetry]
-name = "tlab-pptx"
-version = "0.0.0"  # dummy version. The actual version is __version__ in __init__.py
-description = "Create PowerPoint files for Takeuchi Lab"
-license = "MIT"
-authors = ["Shuhei Nitta <huisintheta@gmail.com>"]
-readme = "README.md"
-homepage = "https://github.com/wasedatakeuchilab/tlab-pptx"
-repository = "https://github.com/wasedatakeuchilab/tlab-pptx"
-
-[tool.poetry.dependencies]
-python = "~3.10"
-pandas = "^1.4.4"
-plotly = "^5.10.0"
-kaleido = "^0.2.1, != 0.2.1.post1"
-python-pptx = "^0.6.21"
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^0.971"
-flake8 = "^5.0.4"
-isort = "^5.10.1"
-black = "^22.8.0"
-pre-commit = "^2.20.0"
-pandas-stubs = "^1.4.4"
-
-[tool.poetry.group.test.dependencies]
-pytest = "^7.1.3"
-pytest-cov = "^3.0.0"
-pytest-describe = "^2.0.1"
-
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry-dynamic-versioning]
-enable = true
-folders = [
-  { path = "src" }
+[project]
+name = "tlab-pptx"
+description = "Create PowerPoint files for Takeuchi Lab"
+readme = "README.md"
+requires-python = "~=3.10"
+license = "MIT"
+authors = [
+  { name = "Shuhei Nitta", email = "huisintheta@gmail.com" }
 ]
+keywords = []
+classifiers = []
+dependencies = [
+  "pandas~=1.4.4",
+  "plotly~=5.10.0",
+  "kaleido~=0.2.1, != 0.2.1.post1",
+  "python-pptx~=0.6.21",
+]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = ""
+Homepage = "https://github.com/wasedatakeuchilab/tlab-pptx"
+
+[project.optional-dependencies]
+test = [
+  "pytest~=7.1.3",
+  "pytest-cov~=3.0.0",
+  "pytest-describe~=2.0.1",
+]
+dev = [
+  "mypy~=0.971",
+  "flake8~=5.0.4",
+  "isort~=5.10.1",
+  "black~=22.8.0",
+  "pre-commit~=2.20.0",
+  "pandas-stubs~=1.4.4",
+]
+doc = []
+
+[tool.hatch.version]
+path = "src/tlab_pptx/__init__.py"
 
 [tool.mypy]
 python_version = "3.10"
@@ -44,17 +50,14 @@ strict = true
 
 [[tool.mypy.overrides]]
 module = [
-    "pptx.*",
-    "plotly.*"
+  "pptx.*",
+  "plotly.*",
 ]
 ignore_missing_imports = true
 
 [tool.isort]
 profile = "black"
 
-[tool.black]
-target-version = ["py310"]
-
 [tool.pytest.ini_options]
-addopts = "--cov=tlab_pptx --cov-report=term-missing:skip-covered"
+addopts = "--cov=tlab_pptx"
 testpaths = ["tests"]
