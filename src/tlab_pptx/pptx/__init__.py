@@ -11,7 +11,7 @@ DEFAULT_PPTX = str(_DEFAULT_PPTX)
 
 def get_pptx_filenames() -> list[str]:
     """
-    Return a list of filenames of built-in `.pptx` files.
+    Gets a list of filenames of built-in `.pptx` files.
 
     Returns
     -------
@@ -23,7 +23,7 @@ def get_pptx_filenames() -> list[str]:
 
 def get_pptx_filepaths() -> list[str]:
     """
-    Return a list of filepaths of built-in `.pptx` files.
+    Gets a list of filepaths of built-in `.pptx` files.
 
     Returns
     -------

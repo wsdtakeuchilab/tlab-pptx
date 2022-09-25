@@ -4,7 +4,7 @@ import typing as t
 
 def get_default_layout() -> dict[str, t.Any]:
     """
-    Get the default layout of a plotly.graph_objects.Figure object for PowerPoint.
+    Gets the default layout of a plotly.graph_objects.Figure object for PowerPoint.
 
     Returns
     -------
@@ -46,7 +46,7 @@ def get_default_layout() -> dict[str, t.Any]:
 
 def get_default_axis() -> dict[str, t.Any]:
     """
-    Get the default axis of a plotly.graph_objects.Figure object for PowerPoint.
+    Gets the default axis of a plotly.graph_objects.Figure object for PowerPoint.
 
     Returns
     -------
@@ -72,7 +72,7 @@ def get_default_axis() -> dict[str, t.Any]:
 
 def get_date_annotation(date: datetime.date) -> dict[str, t.Any]:
     """
-    Get a date annotation of a plotly.graph_objects.Figure object for PowerPoint.
+    Gets a date annotation of a plotly.graph_objects.Figure object for PowerPoint.
 
     Returns
     -------

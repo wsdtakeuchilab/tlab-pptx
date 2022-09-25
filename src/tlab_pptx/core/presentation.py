@@ -20,17 +20,21 @@ class Presentation:
 
     @property
     def slide_layouts(self) -> tuple[pptx.slide.SlideLayout, ...]:
-        """A tuple of slide layouts belonging to the first slide master."""
+        """
+        A tuple of slide layouts belonging to the first slide master.
+        """
         return tuple(self._prs.slide_layouts)
 
     @property
     def slides(self) -> tuple[slide.Slide, ...]:
-        """A tuple of slides in the presentation."""
+        """
+        A tuple of slides in the presentation.
+        """
         return tuple(map(slide.Slide, self._prs.slides))
 
     def add_slide(self, layout_idx: int | None = None) -> slide.Slide:
         """
-        Create a new slide and add it to the presentation.
+        Creates a new slide and add it to the presentation.
 
         Parameters
         ----------
@@ -52,7 +56,7 @@ class Presentation:
 
     def save(self, filepath_or_buffer: typing.FilePathOrBuffer) -> None:
         """
-        Save as a `pptx` file.
+        Saves as a `pptx` file.
 
         Parameters
         ----------
@@ -66,7 +70,7 @@ def new_presentation(
     filepath_or_buffer: typing.FilePathOrBuffer | None = None,
 ) -> Presentation:
     """
-    Create a new presentation.
+    Creates a new presentation.
 
     Parameters
     ----------
