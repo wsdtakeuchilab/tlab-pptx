@@ -70,14 +70,24 @@ def get_default_axis() -> dict[str, t.Any]:
     return dict(ticks="inside", mirror=True, showline=True)
 
 
-def get_date_annotation(date: datetime.date) -> dict[str, t.Any]:
+def get_date_annotation(date: datetime.date | tuple[int, int, int]) -> dict[str, t.Any]:
     """
     Gets a date annotation of a plotly.graph_objects.Figure object for PowerPoint.
+
+    Parameters
+    ----------
+    date : datetime.date | tuple[int, int, int]
+        A date object or compiatible tuple.
 
     Returns
     -------
     dict[str, Any]
         An annotation of date.
+
+    Raises
+    ------
+    ValueError
+        If date is not compiatible with `datetime.date`.
 
     See also
     --------
@@ -101,6 +111,11 @@ def get_date_annotation(date: datetime.date) -> dict[str, t.Any]:
                    'template': '...'}
     })
     """
+    if isinstance(date, tuple):
+        try:
+            date = datetime.date(*date[:3])
+        except (ValueError, TypeError) as err:
+            raise ValueError(f"{date} is not compiatible with `datetime.date`") from err
     return dict(
         text=date.strftime("%Y.%m.%d"),
         x=1.0,
