@@ -22,7 +22,7 @@ def build(
     tau2: float,
 ) -> core.Presentation:
     """
-    Build a Presentation object for a photo luminescence experiment.
+    Builds a Presentation object for a photo luminescence experiment.
 
     Parameters
     ----------

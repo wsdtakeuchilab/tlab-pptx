@@ -28,20 +28,20 @@ class Slide:
         font_italic: bool | None = None,
     ) -> "Slide":
         """
-        Update the title of the slide.
+        Updates the title of the slide.
 
         Parameters
         ----------
-            title_text : str
-                The title text.
-            font_name : str
-                The font name of the title text.
-            font_size : int
-                The size of the title text in point.
-            font_bold : bool
-                If true, the title text is bold style.
-            font_italic : bool
-                If true, the title text is italic style.
+        title_text : str
+            The title text.
+        font_name : str
+            The font name of the title text.
+        font_size : int
+            The size of the title text in point.
+        font_bold : bool
+            If true, the title text is bold style.
+        font_italic : bool
+            If true, the title text is italic style.
 
         Returns
         -------
@@ -83,28 +83,28 @@ class Slide:
         font_italic: bool = False,
     ) -> "Slide":
         """
-        Add a text to the slide.
+        Adds a text to the slide.
 
         Parameters
         ----------
-            text : str
-                A text to be added.
-            left : float
-                The left position of the text in centimeter.
-            top : float
-                The top position of the text in centimeter.
-            width : float
-                The width of the text in centimeter.
-            height : float
-                The height of the text in centimeter.
-            font_name : str
-                The font name of the text.
-            font_size : int
-                The size of the text in point.
-            font_bold : bool
-                If true, the text is bold style.
-            font_italic : bool
-                If true, the text is italic style.
+        text : str
+            A text to be added.
+        left : float
+            The left position of the text in centimeter.
+        top : float
+            The top position of the text in centimeter.
+        width : float
+            The width of the text in centimeter.
+        height : float
+            The height of the text in centimeter.
+        font_name : str
+            The font name of the text.
+        font_size : int
+            The size of the text in point.
+        font_bold : bool
+            If true, the text is bold style.
+        font_italic : bool
+            If true, the text is italic style.
 
         Returns
         -------
@@ -137,20 +137,20 @@ class Slide:
         height: float = 11.5,
     ) -> "Slide":
         """
-        Add a figure to the slide.
+        Adds a figure to the slide.
 
         Parameters
         ----------
-            fig : plotly.graph_objects.Figure
-                A figure to be added.
-            left : float
-                The left position of the figure in centimeter.
-            top : float
-                The top position of the figure in centimeter.
-            width : float
-                The width of the figure in centimeter.
-            height : float
-                The height of the figure in centimeter.
+        fig : plotly.graph_objects.Figure
+            A figure to be added.
+        left : float
+            The left position of the figure in centimeter.
+        top : float
+            The top position of the figure in centimeter.
+        width : float
+            The width of the figure in centimeter.
+        height : float
+            The height of the figure in centimeter.
 
         Returns
         -------
