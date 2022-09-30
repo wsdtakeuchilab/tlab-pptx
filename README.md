@@ -12,7 +12,7 @@
 **_tlab-pptx_** is a Python package for creating PowerPoint(`.pptx`) files for Takeuchi laboratory.
 
 - [Installation](#installation)
-- [Getting started](#getting-started)
+- [Getting Started](#getting-started)
   - [Create a PowerPoint](#create-a-powerpoint)
     - [Basic usage](#basic-usage)
     - [Add a slide](#add-a-slide)
@@ -35,7 +35,7 @@ Python 3.10 or above is required.
 pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
 ```
 
-## Getting started
+## Getting Started
 
 ### Create a PowerPoint
 
