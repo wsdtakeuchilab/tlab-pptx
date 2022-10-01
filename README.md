@@ -12,7 +12,7 @@
 **_tlab-pptx_** is a Python package for creating PowerPoint(`.pptx`) files for Takeuchi laboratory.
 
 - [Installation](#installation)
-- [Getting started](#getting-started)
+- [Getting Started](#getting-started)
   - [Create a PowerPoint](#create-a-powerpoint)
     - [Basic usage](#basic-usage)
     - [Add a slide](#add-a-slide)
@@ -32,10 +32,10 @@
 Python 3.10 or above is required.
 
 ```sh
-$ pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
+pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
 ```
 
-## Getting started
+## Getting Started
 
 ### Create a PowerPoint
 
@@ -54,12 +54,12 @@ slide.update_title(
     "Hello, world!",
     left=2.5,
     top=2.5,
-    font_size=24
+    font_size=24,
 )
 prs.save("hello_world.pptx")
 ```
 
-![hello_world.pptx slide1](./resources/images/hello_world/slide1.PNG)
+<img alt="hello_world.pptx slide1" src="./resources/images/hello_world/slide1.PNG" width="640px">
 
 #### Add a slide
 
@@ -74,8 +74,8 @@ slide.update_title(
 prs.save("add_slide.pptx")
 ```
 
-![add_slide.pptx slide1](./resources/images/add_slide/slide1.PNG)
-![add_slide.pptx slide2](./resources/images/add_slide/slide2.PNG)
+<img alt="add_slide.pptx slide1" src="./resources/images/add_slide/slide1.PNG" width="640px">
+<img alt="add_slide.pptx slide2" src="./resources/images/add_slide/slide2.PNG" width="640px">
 
 #### Add a text
 
@@ -91,12 +91,12 @@ prs.slides[0].add_text(
     font_name="Arial",  # default font
     font_size=28,
     font_bold=False,
-    font_italic=True
+    font_italic=True,
 )
 prs.save("add_text.pptx")
 ```
 
-![add_text.pptx slide1](./resources/images/add_text/slide1.PNG)
+<img alt="add_text.pptx slide1" src="./resources/images/add_text/slide1.PNG" width="640px">
 
 #### Add a figure
 
@@ -118,7 +118,7 @@ prs.slides[0].add_figure(
 prs.save("add_figure.pptx")
 ```
 
-![add_figure.pptx slide1](./resources/images/add_figure/slide1.PNG)
+<img alt="add_figure.pptx slide1" src="./resources/images/add_figure/slide1.PNG" width="640px">
 
 ### Create a figure for PowerPoint
 
@@ -156,9 +156,7 @@ You can add a date annotation on the bottom-right of the figure by using `tlab_p
 import datetime
 
 fig.add_annotation(
-    tlab_pptx.get_date_annotation(
-        datetime.date(2022, 1, 1)
-    )
+    tlab_pptx.get_date_annotation((2022, 1, 1))
 )
 fig.show()
 ```
@@ -199,15 +197,15 @@ import plotly.subplots
 layout = tlab_pptx.get_default_layout()
 layout["width"] *= 2
 fig = plotly.subplots.make_subplots(
-    rows=1, cols=2
+    rows=1, cols=2,
 ).add_scatter(
     x=x,
     y=y
-    row=1, col=1
+    row=1, col=1,
 ).add_scatter(
     x=x,
     y=0.5 * y,
-    row=1, col=2
+    row=1, col=2,
 ).update_layout(
     layout,
     showlegend=False
@@ -257,7 +255,7 @@ v_fig = px.line(
     y=np.where(time < 1.0, 0, np.exp(-time / tau)) + noise,
     color_discrete_sequence=px.colors.qualitative.Set1,
     log_y=True,
-    range_y=(1e-2, 1)
+    range_y=(1e-2, 1),
 ).update_layout(
     xaxis_title="Time (ns)",
     yaxis_title="Intensity (arb. units)",
