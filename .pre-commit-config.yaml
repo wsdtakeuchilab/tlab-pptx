@@ -1,34 +1,51 @@
+---
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
-    -   id: check-toml
-    -   id: check-yaml
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-toml
+      - id: check-yaml
         args:
-        -   --unsafe
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/pycqa/isort
+          - --unsafe
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
-    -   id: isort
--   repo: https://github.com/psf/black
+      - id: isort
+  - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:
-    -   id: black
--   repo: https://github.com/PyCQA/flake8
+      - id: black
+  - repo: https://github.com/pycqa/flake8
     rev: 6.0.0
     hooks:
-    -   id: flake8
--   repo: local
+      - id: flake8
+  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+    rev: 0.2.2
     hooks:
-    -   id: mypy
+      - id: yamlfmt
+        args:
+          - --mapping=2
+          - --sequence=4
+          - --offset=2
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.29.0
+    hooks:
+      - id: yamllint
+        args:
+          - --format=parsable
+  - repo: local
+    hooks:
+      - id: mypy
         name: mypy
         entry: mypy
         language: python
         types_or: [python, pyi]
 ci:
-    autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks
-    autoupdate_commit_msg: ⬆ [pre-commit.ci] pre-commit autoupdate
-    skip:
-    -   mypy
+  autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks
+  autoupdate_commit_msg: ⬆ [pre-commit.ci] pre-commit autoupdate
+  skip:
+    - mypy
