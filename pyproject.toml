@@ -4,18 +4,18 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tlab-pptx"
-description = "Create PowerPoint files for Takeuchi Lab"
+description = "Creates PowerPoint files for Takeuchi Lab"
 readme = "README.md"
 requires-python = "~=3.10"
 license = "MIT"
 authors = [
   { name = "Shuhei Nitta", email = "huisintheta@gmail.com" }
 ]
-keywords = []
-classifiers = []
+# keywords = []
+# classifiers = []
 dependencies = [
-  "pandas~=1.5.1",
-  "plotly~=5.13.0",
+  "pandas~=1.5.3",
+  "plotly~=5.13.1",
   "kaleido~=0.2.1, != 0.2.1.post1",
   "python-pptx~=0.6.21",
 ]
@@ -27,25 +27,37 @@ Homepage = "https://github.com/wasedatakeuchilab/tlab-pptx"
 
 [project.optional-dependencies]
 test = [
-  "pytest~=7.2.0",
-  "pytest-cov~=4.0.0",
-  "pytest-describe~=2.0.1",
-  "mypy~=1.0",
-  "flake8~=6.0.0",
-  "isort~=5.12.0",
-  "black~=23.1.0",
-  "pandas-stubs~=1.5.1",
+  "pytest==7.2.2",
+  "pytest-cov==4.0.0",
+  "pytest-describe==2.0.1",
+  "pytest-mock==3.10.0",
+  "mypy==1.1.1",
+  "flake8==6.0.0",
+  "isort==5.12.0",
+  "black==23.1.0",
 ]
-dev = [
-  "pre-commit~=3.2.0",
+stubs = [
+  "pandas-stubs==1.5.3",
 ]
 doc = []
 
 [tool.hatch.version]
 path = "src/tlab_pptx/__init__.py"
 
+[tool.hatch.envs.test]
+features = ["test", "stub"]
+
+[tool.hatch.envs.test.scripts]
+test = "scripts/test.sh {args}"
+format = "scripts/format.sh {args}"
+lint = "scripts/lint.sh {args}"
+
+[tool.hatch.envs.doc]
+features = ["doc"]
+
+[tool.hatch.envs.doc.scripts]
+
 [tool.mypy]
-python_version = "3.10"
 strict = true
 
 [[tool.mypy.overrides]]
@@ -60,4 +72,3 @@ profile = "black"
 
 [tool.pytest.ini_options]
 addopts = "--cov=tlab_pptx"
-testpaths = ["tests"]
