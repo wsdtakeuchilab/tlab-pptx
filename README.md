@@ -1,4 +1,4 @@
-# Create PowerPoint files for Takeuchi Lab <!-- omit in toc -->
+# Creates PowerPoint files for Takeuchi Lab <!-- omit in toc -->
 
 <p align="center">
 <a href="https://github.com/wasedatakeuchilab/tlab-pptx/actions?query=workflow%3ATest" target="_blank">
@@ -31,8 +31,8 @@
 
 Python 3.10 or above is required.
 
-```sh
-pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
+```console
+$ pip install git+https://github.com/wasedatakeuchilab/tlab-pptx
 ```
 
 ## Getting Started
@@ -233,7 +233,8 @@ import tlab_pptx
 
 np.random.seed(100)
 noise = np.random.normal(loc=1e-2, scale=5e-2, size=500)
-# Create a fake H-figure
+
+# Creates a fake H-figure
 wavelength = np.linspace(430, 530, 500)
 sigma = 20
 center_wavelength = 475
@@ -246,7 +247,7 @@ h_fig = px.line(
     yaxis_title="Intensity (arb. units)",
 )
 
-# Create a fake V-figure
+# Creates a fake V-figure
 time_range = 10
 time = np.linspace(0, time_range, 500)
 tau = 2.0
@@ -261,7 +262,7 @@ v_fig = px.line(
     yaxis_title="Intensity (arb. units)",
 )
 
-# Create a PowerPoint
+# Creates a PowerPoint
 prs = tlab_pptx.presentation.photo_luminescence.build(
     title_text="Sample name is here",
     excitation_wavelength=470,
