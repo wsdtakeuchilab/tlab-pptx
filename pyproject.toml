@@ -14,7 +14,7 @@ authors = [
 # keywords = []
 # classifiers = []
 dependencies = [
-  "pandas~=1.5.3",
+  "pandas~=2.0.1",
   "plotly~=5.14.0",
   "kaleido~=0.2.1, != 0.2.1.post1",
   "python-pptx~=0.6.21",
