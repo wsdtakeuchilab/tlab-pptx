@@ -37,7 +37,7 @@ test = [
   "black==23.7.0",
 ]
 stub = [
-  "pandas-stubs~=2.0.1",
+  "pandas-stubs~=2.1.1",
 ]
 doc = []
 
