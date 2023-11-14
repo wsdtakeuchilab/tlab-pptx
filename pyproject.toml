@@ -65,7 +65,6 @@ lint = [
 ]
 
 [tool.hatch.envs.doc]
-features = ["doc"]
 dependencies = []
 
 [tool.hatch.envs.doc.scripts]
