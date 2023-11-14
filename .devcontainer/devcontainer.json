@@ -1,8 +1,6 @@
 {
   "name": "Python 3",
   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
-  "mounts": [],
-  "runArgs": [],
   "features": {
     "ghcr.io/devcontainers-contrib/features/apt-packages:1": {
       "packages": "bash-completion"
@@ -13,7 +11,6 @@
   },
   "customizations": {
     "vscode": {
-      "settings": {},
       "extensions": [
         "esbenp.prettier-vscode",
         "github.vscode-github-actions",
