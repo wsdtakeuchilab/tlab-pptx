@@ -1,6 +1,6 @@
 {
   "name": "Python 3",
-  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12",
   "features": {
     "ghcr.io/devcontainers-contrib/features/apt-packages:1": {
       "packages": "bash-completion"
@@ -16,11 +16,7 @@
         "github.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
         "ms-azuretools.vscode-docker",
-        "ms-python.black-formatter",
         "ms-python.flake8",
-        "ms-python.isort",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
         "ninoseki.vscode-pylens",
         "redhat.vscode-yaml",
