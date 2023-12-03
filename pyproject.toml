@@ -38,7 +38,7 @@ mypy = [
 ]
 jupyter = [
   "ipywidgets==8.1.1",
-  "jupyterlab==4.0.8",
+  "jupyterlab==4.0.9",
 ]
 
 [tool.hatch.version]
