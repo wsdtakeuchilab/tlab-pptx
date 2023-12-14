@@ -1,22 +1,25 @@
 {
   "name": "Python 3",
-  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12",
+  "dockerComposeFile": "compose.yml",
+  "service": "main",
+  "workspaceFolder": "/workspaces/main",
   "features": {
     "ghcr.io/devcontainers-contrib/features/apt-packages:1": {
       "packages": "bash-completion"
     },
     "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
-    "ghcr.io/devcontainers-contrib/features/hatch:2": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers-contrib/features/hatch:2": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "esbenp.prettier-vscode",
+        "charliermarsh.ruff",
         "github.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
         "ms-azuretools.vscode-docker",
-        "ms-python.flake8",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
         "ninoseki.vscode-pylens",
         "redhat.vscode-yaml",
