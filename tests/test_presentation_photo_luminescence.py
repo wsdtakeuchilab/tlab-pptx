@@ -2,7 +2,6 @@ import datetime
 
 import plotly.graph_objects as go
 import pytest
-
 from tlab_pptx import core
 from tlab_pptx.presentation import photo_luminescence
 
