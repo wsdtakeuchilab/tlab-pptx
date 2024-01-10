@@ -66,7 +66,7 @@ def get_default_axis() -> dict[str, t.Any]:
     Figure({
         'data': [], 'layout': {'template': '...', 'xaxis': {'mirror': True, 'showline': True, 'ticks': 'inside'}}
     })
-    """
+    """  # noqa: E501
     return dict(ticks="inside", mirror=True, showline=True)
 
 
