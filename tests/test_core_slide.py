@@ -11,7 +11,6 @@ import pptx.slide
 import pptx.text.text
 import pptx.util
 import pytest
-
 from tlab_pptx.core import slide as tslide
 
 
