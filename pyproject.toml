@@ -67,6 +67,9 @@ module = [
 ]
 ignore_missing_imports = true
 
+[tool.pytest.ini_options]
+addopts = "--cov=tlab_pptx"
+
 [tool.ruff]
 select = [
   "E",
@@ -74,6 +77,3 @@ select = [
   "W",
   "I",
 ]
-
-[tool.pytest.ini_options]
-addopts = "--cov=tlab_pptx"
