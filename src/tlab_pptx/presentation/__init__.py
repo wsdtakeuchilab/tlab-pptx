@@ -1,1 +1,1 @@
-from . import photo_luminescence
+from . import photo_luminescence as photo_luminescence

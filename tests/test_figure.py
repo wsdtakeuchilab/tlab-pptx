@@ -2,7 +2,6 @@ import datetime
 
 import plotly.graph_objects as go
 import pytest
-
 from tlab_pptx import figure
 
 
@@ -23,7 +22,7 @@ def test_get_date_annotaion(date: datetime.date | tuple[int, int, int]) -> None:
     [(2022, 13, 1), (2022, 1)],
 )
 def test_get_date_annotaion_with_incompiatible_tuple(
-    date: datetime.date | tuple[int, int, int]
+    date: datetime.date | tuple[int, int, int],
 ) -> None:
     with pytest.raises(ValueError):
         figure.get_date_annotation(date)

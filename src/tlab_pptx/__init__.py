@@ -1,11 +1,8 @@
 __version__ = "0.1.5"
 
-import sys
 
-if sys.version_info >= (3, 10):  # BUG: https://github.com/scanny/python-pptx/issues/762
-    import collections.abc
-
-from . import presentation, typing
+from . import presentation as presentation
+from . import typing as typing
 from .core import Presentation as Presentation
 from .core import Slide as Slide
 from .core import new_presentation as new_presentation
