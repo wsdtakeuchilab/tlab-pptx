@@ -6,6 +6,7 @@ import pptx
 import pptx.presentation
 import pptx.slide
 import pytest
+
 from tlab_pptx import pptx as tpptx
 from tlab_pptx import typing
 from tlab_pptx.core import presentation, slide
