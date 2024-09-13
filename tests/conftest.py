@@ -4,9 +4,9 @@ import typing as t
 from collections import abc
 
 import pytest
-from tlab_pptx import typing
 
 from tests import FixtureRequest
+from tlab_pptx import typing
 
 
 @pytest.fixture(params=["str", "Path"])
