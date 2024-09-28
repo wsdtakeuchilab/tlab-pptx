@@ -3,7 +3,6 @@ import datetime
 import plotly.graph_objects as go
 import pytest
 
-from tlab_pptx import core
 from tlab_pptx.presentation import photo_luminescence
 
 
@@ -51,5 +50,5 @@ def test_build(
         tau1,
         tau2,
     )
-    assert isinstance(prs, core.Presentation)
+    assert prs.slides[0]._slide.shapes.title is not None
     assert prs.slides[0]._slide.shapes.title.text == title_text
