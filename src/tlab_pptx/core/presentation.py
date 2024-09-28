@@ -1,11 +1,11 @@
 import dataclasses
+import typing as t
 
 import pptx
 import pptx.presentation
 import pptx.slide
 
 from tlab_pptx import pptx as tpptx
-from tlab_pptx import typing
 from tlab_pptx.core import slide
 
 
@@ -49,32 +49,30 @@ class Presentation:
         if layout_idx is None:
             layout_idx = 0
         slides = self._prs.slides
-        assert isinstance(slides, pptx.slide.Slides)
         sld = slides.add_slide(self.slide_layouts[layout_idx])
-        assert isinstance(sld, pptx.slide.Slide)
         return slide.Slide(sld)
 
-    def save(self, filepath_or_buffer: typing.FilePathOrBuffer) -> None:
+    def save(self, file: str | t.IO[bytes]) -> None:
         """
         Saves as a `pptx` file.
 
         Parameters
         ----------
-        filepath_or_buffer : tlab_pptx.typing.FilePathOrBuffer
+        file : str | IO[bytes]
             A filepath string or buffer object to which the presentation is saved.
         """
-        self._prs.save(filepath_or_buffer)
+        self._prs.save(file)
 
 
 def new_presentation(
-    filepath_or_buffer: typing.FilePathOrBuffer | None = None,
+    file: str | t.IO[bytes] | None = None,
 ) -> Presentation:
     """
     Creates a new presentation.
 
     Parameters
     ----------
-    filepath_or_buffer : tlab_pptx.typing.FilePathOrBuffer | None
+    file : tlab_pptx.str | IO[bytes] | None
         A filepath string or buffer object of a `.pptx` file as a base.
         if None (default), `tlab_pptx.pptx.DEFAULT_PPTX` is used.
 
@@ -83,8 +81,7 @@ def new_presentation(
     tlab_pptx.core.presentation.Presentation
         A new presentation.
     """
-    if filepath_or_buffer is None:
-        filepath_or_buffer = tpptx.DEFAULT_PPTX
-    prs = pptx.Presentation(filepath_or_buffer)
-    assert isinstance(prs, pptx.presentation.Presentation)
+    if file is None:
+        file = tpptx.DEFAULT_PPTX
+    prs = pptx.Presentation(file)
     return Presentation(prs)
