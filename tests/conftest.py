@@ -23,11 +23,11 @@ def filepath(
 
 
 @pytest.fixture(params=["buffer", "filepath"])
-def filepath_or_buffer(
+def file(
     request: FixtureRequest[str],
-    filepath: typing.FilePath,
+    filepath: str,
     open_mode: t.Literal["rb", "wb"],
-) -> abc.Generator[typing.FilePathOrBuffer, None, None]:
+) -> abc.Generator[str | t.IO[bytes], None, None]:
     match request.param:
         case "buffer":
             if "r" in open_mode:
