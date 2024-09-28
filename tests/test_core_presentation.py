@@ -1,4 +1,5 @@
 import functools
+import typing as t
 from collections import abc
 from unittest import mock
 
@@ -8,7 +9,6 @@ import pptx.slide
 import pytest
 
 from tlab_pptx import pptx as tpptx
-from tlab_pptx import typing
 from tlab_pptx.core import presentation, slide
 
 
@@ -23,20 +23,20 @@ def test_new_presentation() -> None:
     ["filename", "open_mode"],
     [(tpptx.DEFAULT_PPTX, "rb")],
 )
-def test_new_presentation_filepath_or_buffer(
-    filepath_or_buffer: typing.FilePathOrBuffer | None,
+def test_new_presentation_file(
+    file: str | t.IO[bytes] | None,
 ) -> None:
     with mock.patch("pptx.Presentation", return_value=pptx.Presentation()) as m:
-        prs = presentation.new_presentation(filepath_or_buffer)
-    m.assert_called_once_with(filepath_or_buffer)
+        prs = presentation.new_presentation(file)
+    m.assert_called_once_with(file)
     assert prs._prs == m.return_value
 
 
 @functools.lru_cache(maxsize=32)
 def _new_presentation(
-    filepath: typing.FilePath | None = None,
+    file: str | t.IO[bytes] | None = None,
 ) -> pptx.presentation.Presentation:
-    return pptx.Presentation(filepath)
+    return pptx.Presentation(file)
 
 
 def describe_presentation() -> None:
@@ -74,7 +74,7 @@ def describe_presentation() -> None:
     def test_save(
         save_mock: mock.Mock,
         prs: presentation.Presentation,
-        filepath_or_buffer: typing.FilePathOrBuffer,
+        file: str | t.IO[bytes],
     ) -> None:
-        prs.save(filepath_or_buffer)
-        save_mock.assert_called_once_with(filepath_or_buffer)
+        prs.save(file)
+        save_mock.assert_called_once_with(file)
