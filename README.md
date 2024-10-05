@@ -5,7 +5,7 @@
   <img src="https://github.com/wasedatakeuchilab/tlab-pptx/workflows/Test/badge.svg" alt="Test">
 </a>
 <a href="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx" >
-  <img src="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx/graph/badge.svg?token=LQ5EX0JRUI" alt="Coverage"/> 
+  <img src="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx/graph/badge.svg?token=LQ5EX0JRUI" alt="Coverage"/>
 </a>
 </p>
 
