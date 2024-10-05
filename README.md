@@ -2,10 +2,10 @@
 
 <p align="center">
 <a href="https://github.com/wasedatakeuchilab/tlab-pptx/actions?query=workflow%3ATest" target="_blank">
-    <img src="https://github.com/wasedatakeuchilab/tlab-pptx/workflows/Test/badge.svg" alt="Test">
+  <img src="https://github.com/wasedatakeuchilab/tlab-pptx/workflows/Test/badge.svg" alt="Test">
 </a>
-<a href="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx" target="_blank">
-    <img src="https://img.shields.io/codecov/c/github/wasedatakeuchilab/tlab-pptx?color=%2334D058" alt="Coverage">
+<a href="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx" > 
+  <img src="https://codecov.io/gh/wasedatakeuchilab/tlab-pptx/graph/badge.svg?token=LQ5EX0JRUI" alt="Coverage"/> 
 </a>
 </p>
 
