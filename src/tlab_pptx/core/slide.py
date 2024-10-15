@@ -56,7 +56,6 @@ class Slide:
         title = self._slide.shapes.title
         if title is None:
             raise ValueError("No title placeholder in this slide")
-        assert isinstance(title, pptx.shapes.placeholder.SlidePlaceholder)
         if text is not None:
             title.text = text
         for paragraph in title.text_frame.paragraphs:
@@ -112,14 +111,12 @@ class Slide:
             Itself.
         """
         shapes = self._slide.shapes
-        assert isinstance(shapes, pptx.shapes.shapetree.SlideShapes)
         textbox = shapes.add_textbox(
             left=pptx.util.Cm(left),
             top=pptx.util.Cm(top),
             width=pptx.util.Cm(width),
             height=pptx.util.Cm(height),
         )
-        assert isinstance(textbox, pptx.shapes.autoshape.Shape)
         textbox.text_frame.text = text
         for paragraph in textbox.text_frame.paragraphs:
             paragraph.font.name = font_name
@@ -158,7 +155,6 @@ class Slide:
             Itself.
         """
         shapes = self._slide.shapes
-        assert isinstance(shapes, pptx.shapes.shapetree.SlideShapes)
         with io.BytesIO(fig.to_image("png", scale=10)) as f:
             shapes.add_picture(
                 f,
