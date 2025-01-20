@@ -102,7 +102,7 @@ def build(
         top=17.0,
         font_name="Cambria Math",
     ).add_text(
-        f"τ₁ = {tau1:.2g} ns\n" f"τ₂ = {tau2:.2g} ns\n",
+        f"τ₁ = {tau1:.2g} ns\nτ₂ = {tau2:.2g} ns\n",
         left=19.33,
         top=17.0,
         font_name="Cambria Math",
